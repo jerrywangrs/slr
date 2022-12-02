@@ -1,0 +1,30 @@
+---
+title: "my-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+# Setup
+```{r setup}
+library(slr)
+data("iris")
+```
+
+# Example
+```{r}
+slr(iris$Sepal.Length,iris$Sepal.Width)
+```
+```{r}
+summary(lm(iris$Sepal.Width~iris$Sepal.Length))
+```
+
+In my simple linear regression function, Comparing with the lm function I simulated from, my function shows value of Beta0, Beta1, r square, F test and t test. Besides that, I added three plots to let user have better visualization.
